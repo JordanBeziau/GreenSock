@@ -1,4 +1,3 @@
-//import app from "app";
 import { TweenLite, CSSPlugin } from "gsap";
 
 document.addEventListener("DOMContentLoaded", () => {
