@@ -1,3 +1,10 @@
-import { TweenLite, CSSPlugin } from "gsap";
+import { TweenLite, TimelineLite, CSSPlugin } from "gsap";
 
-document.addEventListener("DOMContentLoaded", () => {});
+document.addEventListener("DOMContentLoaded", () => {
+  const Timeline = new TimelineLite();
+  const all = document.querySelectorAll("header > *");
+
+  all.forEach(element => {
+    Timeline.from(element, 0.3, { autoAlpha: 0, y: -25 }, "-=.15");
+  });
+});
