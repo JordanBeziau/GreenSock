@@ -2,15 +2,28 @@ import { TimelineLite, CSSPlugin } from "gsap";
 
 document.addEventListener("DOMContentLoaded", () => {
   const Timeline = new TimelineLite();
+  const buttons = document.querySelectorAll("button");
   const all = Array.from(document.querySelectorAll("header > *:not(ul)")),
     lists = Array.from(document.querySelectorAll("header ul > li"));
 
   lists.forEach(list => all.push(list));
 
   all.forEach(element => {
-    Timeline.from(element, 0.3, { autoAlpha: 0, y: -50 }, "-=.10");
+    Timeline.from(element, 0.3, { autoAlpha: 0, y: -50 }, "-=.15");
   });
-  Timeline.pause();
+
+  Timeline.staggerFrom(
+    buttons,
+    0.2,
+    {
+      cycle: {
+        x: [50, -50],
+        scale: [1.5, 0.5]
+      },
+      autoAlpha: 0
+    },
+    0.1
+  );
 
   document
     .getElementById("tlPlay")
